@@ -112,47 +112,47 @@
 
 /* Size Variants - Horizontal Layout */
 .layout-horizontal.size-compact {
-  gap: 6px;
-}
-.layout-horizontal.size-compact .stat-card {
-  padding: 4px 12px;
-  border-radius: 12px;
-}
-.layout-horizontal.size-compact .stat-value {
-  font-size: 1.1em;
-}
-.layout-horizontal.size-compact .stat-label {
-  font-size: 0.65em;
-  font-weight: 600;
-}
-
-.layout-horizontal.size-normal {
   gap: 10px;
 }
-.layout-horizontal.size-normal .stat-card {
+.layout-horizontal.size-compact .stat-card {
   padding: 4px 16px;
   border-radius: 16px;
 }
-.layout-horizontal.size-normal .stat-value {
+.layout-horizontal.size-compact .stat-value {
   font-size: 1.4em;
 }
-.layout-horizontal.size-normal .stat-label {
+.layout-horizontal.size-compact .stat-label {
   font-size: 0.75em;
   font-weight: 600;
 }
 
-.layout-horizontal.size-large {
-  gap: 14px;
+.layout-horizontal.size-normal {
+  gap: 12px;
 }
-.layout-horizontal.size-large .stat-card {
-  padding: 8px 22px;
-  border-radius: 20px;
+.layout-horizontal.size-normal .stat-card {
+  padding: 8px 20px;
+  border-radius: 18px;
 }
-.layout-horizontal.size-large .stat-value {
+.layout-horizontal.size-normal .stat-value {
   font-size: 1.8em;
 }
-.layout-horizontal.size-large .stat-label {
+.layout-horizontal.size-normal .stat-label {
   font-size: 0.85em;
+  font-weight: 600;
+}
+
+.layout-horizontal.size-large {
+  gap: 16px;
+}
+.layout-horizontal.size-large .stat-card {
+  padding: 12px 26px;
+  border-radius: 22px;
+}
+.layout-horizontal.size-large .stat-value {
+  font-size: 2.2em;
+}
+.layout-horizontal.size-large .stat-label {
+  font-size: 0.95em;
   font-weight: 600;
 }
 
