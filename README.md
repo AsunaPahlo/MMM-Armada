@@ -46,7 +46,7 @@ Add the module to your `config/config.js` file:
 | `displayMode` | Display mode: `summary` or `detailed` | `summary` |
 | `summarySize` | Summary pill size: `compact`, `normal`, or `large` | `normal` |
 | `summaryLayout` | Summary layout: `vertical` or `horizontal` | `vertical` |
-| `summaryOpacity` | Background opacity for all modes: `0.0` to `1.0` | `0.4` |
+| `opacity` | Background opacity for all modes: `0.0` to `1.0` | `0.4` |
 | `debug` | Enable debug logging | `false` |
 
 #### Detailed Mode Options
