@@ -19,6 +19,7 @@ Module.register('MMM-Armada', {
     // Summary mode options
     summarySize: 'normal', // 'compact', 'normal', or 'large'
     summaryLayout: 'vertical', // 'vertical' or 'horizontal'
+    summaryOpacity: 0.4, // 0.0 to 1.0 - controls gradient background opacity
     // Detailed mode options
     maxSubmarines: 10,
     sortBy: 'hours_remaining', // 'hours_remaining', 'status', 'fc_name', 'name'
@@ -76,6 +77,10 @@ Module.register('MMM-Armada', {
       wrapper.className = 'dimmed light small'
       return wrapper
     }
+
+    // Set opacity CSS variables on wrapper
+    wrapper.style.setProperty('--summary-opacity', this.config.summaryOpacity)
+    wrapper.style.setProperty('--summary-opacity-fade', this.config.summaryOpacity * 0.25)
 
     var data = this.dashboardData
 
