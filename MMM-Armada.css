@@ -122,21 +122,23 @@
   font-size: 1.1em;
 }
 .layout-horizontal.size-compact .stat-label {
-  font-size: 0.6em;
+  font-size: 0.65em;
+  font-weight: 600;
 }
 
 .layout-horizontal.size-normal {
   gap: 10px;
 }
 .layout-horizontal.size-normal .stat-card {
-  padding: 10px 16px;
+  padding: 6px 16px;
   border-radius: 16px;
 }
 .layout-horizontal.size-normal .stat-value {
   font-size: 1.4em;
 }
 .layout-horizontal.size-normal .stat-label {
-  font-size: 0.7em;
+  font-size: 0.75em;
+  font-weight: 600;
 }
 
 .layout-horizontal.size-large {
@@ -150,7 +152,8 @@
   font-size: 1.8em;
 }
 .layout-horizontal.size-large .stat-label {
-  font-size: 0.8em;
+  font-size: 0.85em;
+  font-weight: 600;
 }
 
 /* Card Color Variants - Gradient backgrounds using CSS variables */
