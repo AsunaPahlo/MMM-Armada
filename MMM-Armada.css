@@ -14,7 +14,6 @@
 .armada-cards {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   min-width: 220px;
 }
 
@@ -22,49 +21,88 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
   border-radius: 50px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
 }
 
 .stat-value {
-  font-size: 1.4em;
   font-weight: 600;
-  min-width: 50px;
   text-align: right;
 }
 
 .stat-label {
-  font-size: 0.85em;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
+/* Size Variants */
+.size-compact {
+  gap: 4px;
+}
+.size-compact .stat-card {
+  padding: 6px 14px;
+}
+.size-compact .stat-value {
+  font-size: 1.1em;
+  min-width: 40px;
+}
+.size-compact .stat-label {
+  font-size: 0.75em;
+}
+
+.size-normal {
+  gap: 8px;
+}
+.size-normal .stat-card {
+  padding: 10px 20px;
+}
+.size-normal .stat-value {
+  font-size: 1.4em;
+  min-width: 50px;
+}
+.size-normal .stat-label {
+  font-size: 0.85em;
+}
+
+.size-large {
+  gap: 12px;
+}
+.size-large .stat-card {
+  padding: 14px 26px;
+}
+.size-large .stat-value {
+  font-size: 1.8em;
+  min-width: 60px;
+}
+.size-large .stat-label {
+  font-size: 0.95em;
+}
+
 /* Card Color Variants - Gradient backgrounds */
 .stat-ready {
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.25) 0%, rgba(74, 222, 128, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.4) 0%, rgba(74, 222, 128, 0.1) 100%);
 }
 .stat-ready .stat-value {
   color: #4ade80;
 }
 
 .stat-soon {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.1) 100%);
 }
 .stat-soon .stat-value {
   color: #fbbf24;
 }
 
 .stat-voyaging {
-  background: linear-gradient(135deg, rgba(96, 165, 250, 0.25) 0%, rgba(96, 165, 250, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.4) 0%, rgba(96, 165, 250, 0.1) 100%);
 }
 .stat-voyaging .stat-value {
   color: #60a5fa;
 }
 
 .stat-gil {
-  background: linear-gradient(135deg, rgba(192, 132, 252, 0.25) 0%, rgba(192, 132, 252, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.4) 0%, rgba(192, 132, 252, 0.1) 100%);
 }
 .stat-gil .stat-value {
   color: #c084fc;
@@ -72,21 +110,21 @@
 
 /* Restock Status Colors */
 .stat-ok {
-  background: linear-gradient(135deg, rgba(74, 222, 128, 0.25) 0%, rgba(74, 222, 128, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.4) 0%, rgba(74, 222, 128, 0.1) 100%);
 }
 .stat-ok .stat-value {
   color: #4ade80;
 }
 
 .stat-warning {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.1) 100%);
 }
 .stat-warning .stat-value {
   color: #fbbf24;
 }
 
 .stat-critical {
-  background: linear-gradient(135deg, rgba(248, 113, 113, 0.25) 0%, rgba(248, 113, 113, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.4) 0%, rgba(248, 113, 113, 0.1) 100%);
 }
 .stat-critical .stat-value {
   color: #f87171;
