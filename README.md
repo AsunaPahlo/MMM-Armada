@@ -107,7 +107,7 @@ A clean, compact dashboard with 5 stat cards:
 - **Voyaging** - Number of submarines currently on voyages
 - **Ready** - Number of submarines ready to deploy
 - **Almost Ready** - Number of submarines returning soon
-- **Gil (30 days)** - Estimated Gil earned over the last 30 days
+- **Gil/Day** - Average daily profit from the last 30 days of voyage data
 
 ### Detailed Mode
 

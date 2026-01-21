@@ -138,10 +138,10 @@ Module.register('MMM-Armada', {
       }
     }
 
-    // Gil made last 30 days (estimate from daily rate)
-    var gilLast30Days = 0
-    if (data.summary && data.summary.total_gil_per_day) {
-      gilLast30Days = data.summary.total_gil_per_day * 30
+    // Average daily profit (from actual voyage data)
+    var gilPerDay = 0
+    if (data.summary && data.summary.avg_daily_profit) {
+      gilPerDay = data.summary.avg_daily_profit
     }
 
     div.innerHTML = `
@@ -162,8 +162,8 @@ Module.register('MMM-Armada', {
         <div class="stat-value">${almostReadyCount}</div>
       </div>
       <div class="stat-card stat-gil">
-        <div class="stat-label">Gil (30 days)</div>
-        <div class="stat-value">${this.formatNumber(gilLast30Days)}</div>
+        <div class="stat-label">Gil/Day</div>
+        <div class="stat-value">${this.formatNumber(gilPerDay)}</div>
       </div>
     `
 
