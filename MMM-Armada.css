@@ -115,7 +115,7 @@
   gap: 6px;
 }
 .layout-horizontal.size-compact .stat-card {
-  padding: 6px 12px;
+  padding: 4px 12px;
   border-radius: 12px;
 }
 .layout-horizontal.size-compact .stat-value {
@@ -130,7 +130,7 @@
   gap: 10px;
 }
 .layout-horizontal.size-normal .stat-card {
-  padding: 6px 16px;
+  padding: 4px 16px;
   border-radius: 16px;
 }
 .layout-horizontal.size-normal .stat-value {
@@ -145,7 +145,7 @@
   gap: 14px;
 }
 .layout-horizontal.size-large .stat-card {
-  padding: 14px 22px;
+  padding: 8px 22px;
   border-radius: 20px;
 }
 .layout-horizontal.size-large .stat-value {
