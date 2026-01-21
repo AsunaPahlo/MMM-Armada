@@ -1,0 +1,205 @@
+/* MagicMirror²
+ * Module: MMM-Armada
+ * Submarine Fleet Status Display Styles
+ */
+
+.mmm-armada {
+  line-height: 1.4;
+}
+
+/* Summary Section */
+.armada-summary {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 0;
+}
+
+.summary-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85em;
+}
+
+.summary-value {
+  font-weight: 500;
+}
+
+.summary-separator {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 4px;
+}
+
+/* Supply Section */
+.armada-supply {
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.supply-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.supply-label {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85em;
+}
+
+.supply-value {
+  font-weight: 500;
+}
+
+.supply-limiting {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8em;
+}
+
+/* Status Colors */
+.status-ready {
+  color: #4ade80 !important; /* green */
+}
+
+.status-returning_soon {
+  color: #fbbf24 !important; /* yellow/amber */
+}
+
+.status-voyaging {
+  color: #60a5fa !important; /* blue */
+}
+
+.status-dim {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.status-ok {
+  color: #4ade80;
+}
+
+.status-warning {
+  color: #fbbf24;
+}
+
+.status-critical {
+  color: #f87171;
+}
+
+/* Submarine Table */
+.armada-submarines {
+  margin-top: 5px;
+}
+
+.armada-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.armada-table td {
+  padding: 3px 6px;
+  vertical-align: middle;
+}
+
+.sub-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sub-row:last-child {
+  border-bottom: none;
+}
+
+/* Status Row Backgrounds - subtle */
+.status-row-ready {
+  background: rgba(74, 222, 128, 0.08);
+}
+
+.status-row-returning_soon {
+  background: rgba(251, 191, 36, 0.08);
+}
+
+/* Status Icons */
+.sub-status {
+  width: 20px;
+  text-align: center;
+}
+
+.status-icon {
+  font-size: 0.9em;
+}
+
+.ready-icon {
+  color: #4ade80;
+}
+
+.soon-icon {
+  color: #fbbf24;
+}
+
+.voyage-icon {
+  color: #60a5fa;
+}
+
+/* Submarine Name */
+.sub-name {
+  font-size: 0.9em;
+}
+
+.fc-name {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+}
+
+.sub-level {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8em;
+}
+
+/* Submarine Info (route/build) */
+.sub-info {
+  font-size: 0.8em;
+}
+
+/* Time Display */
+.sub-time {
+  font-size: 0.9em;
+  white-space: nowrap;
+}
+
+.time-ready {
+  color: #4ade80;
+  font-weight: 600;
+}
+
+.time-soon {
+  color: #fbbf24;
+}
+
+.time-voyage {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* More row */
+.more-row td {
+  text-align: center;
+  padding-top: 6px;
+}
+
+/* Error message */
+.error {
+  color: #f87171;
+}
+
+/* Alignment helpers */
+.align-left {
+  text-align: left;
+}
+
+.align-right {
+  text-align: right;
+}

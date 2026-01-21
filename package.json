@@ -1,0 +1,18 @@
+{
+  "name": "mmm-armada",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "A MagicMirror² module to display FFXIV submarine fleet status from Armada-web",
+  "main": "MMM-Armada.js",
+  "keywords": [
+    "MagicMirror",
+    "FFXIV",
+    "submarine",
+    "armada",
+    "fleet"
+  ],
+  "author": "Asuna",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}
