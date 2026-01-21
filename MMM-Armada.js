@@ -113,24 +113,16 @@ Module.register('MMM-Armada', {
     var div = document.createElement('div')
     div.className = 'armada-cards size-' + this.config.summarySize + ' layout-' + this.config.summaryLayout
 
-    // Count submarines by status
-    var readyCount = 0
-    var almostReadyCount = 0
-    var voyagingCount = 0
-
-    if (data.submarines) {
-      data.submarines.forEach(function (sub) {
-        if (sub.status === 'ready') readyCount++
-        else if (sub.status === 'returning_soon') almostReadyCount++
-        else if (sub.status === 'voyaging') voyagingCount++
-      })
-    }
+    // Get submarine counts from API (flat structure)
+    var readyCount = data.ready_subs || 0
+    var almostReadyCount = data.returning_soon_subs || 0
+    var voyagingCount = data.voyaging_subs || 0
 
     // Days until restock
     var daysUntilRestock = null
     var restockClass = 'stat-ok'
-    if (data.supply_forecast && data.supply_forecast.days_until_restock !== null) {
-      daysUntilRestock = data.supply_forecast.days_until_restock
+    if (data.days_until_restock !== null && data.days_until_restock !== undefined) {
+      daysUntilRestock = data.days_until_restock
       if (daysUntilRestock <= 3) {
         restockClass = 'stat-critical'
       } else if (daysUntilRestock <= 7) {
@@ -139,10 +131,7 @@ Module.register('MMM-Armada', {
     }
 
     // Average daily profit (from actual voyage data)
-    var gilPerDay = 0
-    if (data.summary && data.summary.avg_daily_profit) {
-      gilPerDay = data.summary.avg_daily_profit
-    }
+    var gilPerDay = data.avg_daily_profit || 0
 
     div.innerHTML = `
       <div class="stat-card ${restockClass}">
@@ -386,6 +375,7 @@ Module.register('MMM-Armada', {
     this.sendSocketNotification('ARMADA_REQUEST', {
       apiUrl: this.config.apiUrl,
       apiKey: this.config.apiKey,
+      displayMode: this.config.displayMode,
       identifier: this.identifier,
     })
 

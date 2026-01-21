@@ -15,7 +15,9 @@ module.exports = NodeHelper.create({
 
   async getData(payload) {
     try {
-      const url = `${payload.apiUrl}/api/v1/dashboard`
+      // Use lightweight /status endpoint for summary mode, full /dashboard for detailed
+      const endpoint = payload.displayMode === 'detailed' ? 'dashboard' : 'status'
+      const url = `${payload.apiUrl}/api/v1/${endpoint}`
 
       // API key is required for v1 API
       if (!payload.apiKey) {
@@ -46,7 +48,7 @@ module.exports = NodeHelper.create({
         data: data,
       })
 
-      Log.log(`[MMM-Armada] Successfully fetched dashboard data`)
+      Log.log(`[MMM-Armada] Successfully fetched ${endpoint} data`)
     }
     catch (error) {
       Log.error('[MMM-Armada] Could not load data:', error.message)
