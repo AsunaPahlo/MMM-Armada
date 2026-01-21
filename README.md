@@ -45,6 +45,7 @@ Add the module to your `config/config.js` file:
 | `initialLoadDelay` | Delay before first data load (in milliseconds) | `0` |
 | `displayMode` | Display mode: `summary` or `detailed` | `summary` |
 | `summarySize` | Summary pill size: `compact`, `normal`, or `large` | `normal` |
+| `summaryLayout` | Summary layout: `vertical` or `horizontal` | `vertical` |
 | `debug` | Enable debug logging | `false` |
 
 #### Detailed Mode Options

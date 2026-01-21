@@ -18,6 +18,7 @@ Module.register('MMM-Armada', {
     displayMode: 'summary', // 'summary' or 'detailed'
     // Summary mode options
     summarySize: 'normal', // 'compact', 'normal', or 'large'
+    summaryLayout: 'vertical', // 'vertical' or 'horizontal'
     // Detailed mode options
     maxSubmarines: 10,
     sortBy: 'hours_remaining', // 'hours_remaining', 'status', 'fc_name', 'name'
@@ -105,7 +106,7 @@ Module.register('MMM-Armada', {
   // Summary cards view
   createSummaryCards: function (data) {
     var div = document.createElement('div')
-    div.className = 'armada-cards size-' + this.config.summarySize
+    div.className = 'armada-cards size-' + this.config.summarySize + ' layout-' + this.config.summaryLayout
 
     // Count submarines by status
     var readyCount = 0

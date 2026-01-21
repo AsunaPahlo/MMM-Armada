@@ -28,6 +28,7 @@
 .stat-value {
   font-weight: 600;
   text-align: right;
+  color: #ffffff;
 }
 
 .stat-label {
@@ -36,98 +37,146 @@
   letter-spacing: 0.5px;
 }
 
-/* Size Variants */
-.size-compact {
+/* Layout Variants */
+.layout-vertical {
+  flex-direction: column;
+}
+.layout-vertical .stat-card {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.layout-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.layout-horizontal .stat-card {
+  flex-direction: column;
+  text-align: center;
+}
+.layout-horizontal .stat-value {
+  text-align: center;
+  min-width: auto;
+}
+.layout-horizontal .stat-label {
+  margin-top: 2px;
+}
+
+/* Size Variants - Vertical Layout */
+.layout-vertical.size-compact {
   gap: 4px;
 }
-.size-compact .stat-card {
+.layout-vertical.size-compact .stat-card {
   padding: 6px 14px;
 }
-.size-compact .stat-value {
+.layout-vertical.size-compact .stat-value {
   font-size: 1.1em;
   min-width: 40px;
 }
-.size-compact .stat-label {
+.layout-vertical.size-compact .stat-label {
   font-size: 0.75em;
 }
 
-.size-normal {
+.layout-vertical.size-normal {
   gap: 8px;
 }
-.size-normal .stat-card {
+.layout-vertical.size-normal .stat-card {
   padding: 10px 20px;
 }
-.size-normal .stat-value {
+.layout-vertical.size-normal .stat-value {
   font-size: 1.4em;
   min-width: 50px;
 }
-.size-normal .stat-label {
+.layout-vertical.size-normal .stat-label {
   font-size: 0.85em;
 }
 
-.size-large {
+.layout-vertical.size-large {
   gap: 12px;
 }
-.size-large .stat-card {
+.layout-vertical.size-large .stat-card {
   padding: 14px 26px;
 }
-.size-large .stat-value {
+.layout-vertical.size-large .stat-value {
   font-size: 1.8em;
   min-width: 60px;
 }
-.size-large .stat-label {
+.layout-vertical.size-large .stat-label {
   font-size: 0.95em;
+}
+
+/* Size Variants - Horizontal Layout */
+.layout-horizontal.size-compact {
+  gap: 6px;
+}
+.layout-horizontal.size-compact .stat-card {
+  padding: 6px 12px;
+  border-radius: 12px;
+}
+.layout-horizontal.size-compact .stat-value {
+  font-size: 1.1em;
+}
+.layout-horizontal.size-compact .stat-label {
+  font-size: 0.6em;
+}
+
+.layout-horizontal.size-normal {
+  gap: 10px;
+}
+.layout-horizontal.size-normal .stat-card {
+  padding: 10px 16px;
+  border-radius: 16px;
+}
+.layout-horizontal.size-normal .stat-value {
+  font-size: 1.4em;
+}
+.layout-horizontal.size-normal .stat-label {
+  font-size: 0.7em;
+}
+
+.layout-horizontal.size-large {
+  gap: 14px;
+}
+.layout-horizontal.size-large .stat-card {
+  padding: 14px 22px;
+  border-radius: 20px;
+}
+.layout-horizontal.size-large .stat-value {
+  font-size: 1.8em;
+}
+.layout-horizontal.size-large .stat-label {
+  font-size: 0.8em;
 }
 
 /* Card Color Variants - Gradient backgrounds */
 .stat-ready {
   background: linear-gradient(135deg, rgba(74, 222, 128, 0.4) 0%, rgba(74, 222, 128, 0.1) 100%);
 }
-.stat-ready .stat-value {
-  color: #4ade80;
-}
 
 .stat-soon {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.1) 100%);
-}
-.stat-soon .stat-value {
-  color: #fbbf24;
 }
 
 .stat-voyaging {
   background: linear-gradient(135deg, rgba(96, 165, 250, 0.4) 0%, rgba(96, 165, 250, 0.1) 100%);
 }
-.stat-voyaging .stat-value {
-  color: #60a5fa;
-}
 
 .stat-gil {
   background: linear-gradient(135deg, rgba(192, 132, 252, 0.4) 0%, rgba(192, 132, 252, 0.1) 100%);
-}
-.stat-gil .stat-value {
-  color: #c084fc;
 }
 
 /* Restock Status Colors */
 .stat-ok {
   background: linear-gradient(135deg, rgba(74, 222, 128, 0.4) 0%, rgba(74, 222, 128, 0.1) 100%);
 }
-.stat-ok .stat-value {
-  color: #4ade80;
-}
 
 .stat-warning {
   background: linear-gradient(135deg, rgba(251, 191, 36, 0.4) 0%, rgba(251, 191, 36, 0.1) 100%);
 }
-.stat-warning .stat-value {
-  color: #fbbf24;
-}
 
 .stat-critical {
   background: linear-gradient(135deg, rgba(248, 113, 113, 0.4) 0%, rgba(248, 113, 113, 0.1) 100%);
-}
-.stat-critical .stat-value {
-  color: #f87171;
 }
 
 /* ========================================
