@@ -138,24 +138,24 @@ Module.register('MMM-Armada', {
 
     div.innerHTML = `
       <div class="stat-card ${restockClass}">
-        <div class="stat-value">${daysUntilRestock !== null ? daysUntilRestock.toFixed(0) : '—'}</div>
         <div class="stat-label">Days to Restock</div>
+        <div class="stat-value">${daysUntilRestock !== null ? daysUntilRestock.toFixed(0) : '—'}</div>
       </div>
       <div class="stat-card stat-voyaging">
-        <div class="stat-value">${voyagingCount}</div>
         <div class="stat-label">Voyaging</div>
+        <div class="stat-value">${voyagingCount}</div>
       </div>
       <div class="stat-card stat-ready">
-        <div class="stat-value">${readyCount}</div>
         <div class="stat-label">Ready</div>
+        <div class="stat-value">${readyCount}</div>
       </div>
       <div class="stat-card stat-soon">
-        <div class="stat-value">${almostReadyCount}</div>
         <div class="stat-label">Almost Ready</div>
+        <div class="stat-value">${almostReadyCount}</div>
       </div>
       <div class="stat-card stat-gil">
-        <div class="stat-value">${this.formatNumber(gilLast30Days)}</div>
         <div class="stat-label">Gil (30 days)</div>
+        <div class="stat-value">${this.formatNumber(gilLast30Days)}</div>
       </div>
     `
 

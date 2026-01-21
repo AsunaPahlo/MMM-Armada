@@ -8,64 +8,63 @@
 }
 
 /* ========================================
-   SUMMARY MODE - Card Layout
+   SUMMARY MODE - Pill Layout
    ======================================== */
 
 .armada-cards {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  max-width: 320px;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  padding: 12px 16px;
-  min-width: 90px;
-  text-align: center;
-  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
 }
 
 .stat-value {
-  font-size: 1.8em;
+  font-size: 1.4em;
   font-weight: 600;
-  line-height: 1.2;
+  min-width: 50px;
+  text-align: right;
 }
 
 .stat-label {
-  font-size: 0.75em;
-  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85em;
+  color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-top: 4px;
 }
 
-/* Card Color Variants */
+/* Card Color Variants - Gradient backgrounds */
 .stat-ready {
-  border-left-color: #4ade80;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.25) 0%, rgba(74, 222, 128, 0.05) 100%);
 }
 .stat-ready .stat-value {
   color: #4ade80;
 }
 
 .stat-soon {
-  border-left-color: #fbbf24;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
 }
 .stat-soon .stat-value {
   color: #fbbf24;
 }
 
 .stat-voyaging {
-  border-left-color: #60a5fa;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.25) 0%, rgba(96, 165, 250, 0.05) 100%);
 }
 .stat-voyaging .stat-value {
   color: #60a5fa;
 }
 
 .stat-gil {
-  border-left-color: #c084fc;
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.25) 0%, rgba(192, 132, 252, 0.05) 100%);
 }
 .stat-gil .stat-value {
   color: #c084fc;
@@ -73,21 +72,21 @@
 
 /* Restock Status Colors */
 .stat-ok {
-  border-left-color: #4ade80;
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.25) 0%, rgba(74, 222, 128, 0.05) 100%);
 }
 .stat-ok .stat-value {
   color: #4ade80;
 }
 
 .stat-warning {
-  border-left-color: #fbbf24;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.25) 0%, rgba(251, 191, 36, 0.05) 100%);
 }
 .stat-warning .stat-value {
   color: #fbbf24;
 }
 
 .stat-critical {
-  border-left-color: #f87171;
+  background: linear-gradient(135deg, rgba(248, 113, 113, 0.25) 0%, rgba(248, 113, 113, 0.05) 100%);
 }
 .stat-critical .stat-value {
   color: #f87171;
