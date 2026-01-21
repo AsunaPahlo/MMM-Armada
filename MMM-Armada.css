@@ -7,7 +7,96 @@
   line-height: 1.4;
 }
 
-/* Summary Section */
+/* ========================================
+   SUMMARY MODE - Card Layout
+   ======================================== */
+
+.armada-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  max-width: 320px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 90px;
+  text-align: center;
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-value {
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.stat-label {
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Card Color Variants */
+.stat-ready {
+  border-left-color: #4ade80;
+}
+.stat-ready .stat-value {
+  color: #4ade80;
+}
+
+.stat-soon {
+  border-left-color: #fbbf24;
+}
+.stat-soon .stat-value {
+  color: #fbbf24;
+}
+
+.stat-voyaging {
+  border-left-color: #60a5fa;
+}
+.stat-voyaging .stat-value {
+  color: #60a5fa;
+}
+
+.stat-gil {
+  border-left-color: #c084fc;
+}
+.stat-gil .stat-value {
+  color: #c084fc;
+}
+
+/* Restock Status Colors */
+.stat-ok {
+  border-left-color: #4ade80;
+}
+.stat-ok .stat-value {
+  color: #4ade80;
+}
+
+.stat-warning {
+  border-left-color: #fbbf24;
+}
+.stat-warning .stat-value {
+  color: #fbbf24;
+}
+
+.stat-critical {
+  border-left-color: #f87171;
+}
+.stat-critical .stat-value {
+  color: #f87171;
+}
+
+/* ========================================
+   DETAILED MODE - Summary & Supply Sections
+   ======================================== */
+
 .armada-summary {
   margin-bottom: 10px;
   padding-bottom: 8px;
@@ -62,17 +151,20 @@
   font-size: 0.8em;
 }
 
-/* Status Colors */
+/* ========================================
+   DETAILED MODE - Status Colors
+   ======================================== */
+
 .status-ready {
-  color: #4ade80 !important; /* green */
+  color: #4ade80 !important;
 }
 
 .status-returning_soon {
-  color: #fbbf24 !important; /* yellow/amber */
+  color: #fbbf24 !important;
 }
 
 .status-voyaging {
-  color: #60a5fa !important; /* blue */
+  color: #60a5fa !important;
 }
 
 .status-dim {
@@ -91,7 +183,10 @@
   color: #f87171;
 }
 
-/* Submarine Table */
+/* ========================================
+   DETAILED MODE - Submarines Table
+   ======================================== */
+
 .armada-submarines {
   margin-top: 5px;
 }
@@ -114,7 +209,7 @@
   border-bottom: none;
 }
 
-/* Status Row Backgrounds - subtle */
+/* Status Row Backgrounds */
 .status-row-ready {
   background: rgba(74, 222, 128, 0.08);
 }
@@ -190,12 +285,14 @@
   padding-top: 6px;
 }
 
-/* Error message */
+/* ========================================
+   COMMON
+   ======================================== */
+
 .error {
   color: #f87171;
 }
 
-/* Alignment helpers */
 .align-left {
   text-align: left;
 }

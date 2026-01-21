@@ -15,9 +15,8 @@ Module.register('MMM-Armada', {
     updateInterval: 60 * 1000,
     animationSpeed: 2 * 1000,
     initialLoadDelay: 0,
-    showSummary: true,
-    showSupplyForecast: true,
-    showSubmarines: true,
+    displayMode: 'summary', // 'summary' or 'detailed'
+    // Detailed mode options
     maxSubmarines: 10,
     sortBy: 'hours_remaining', // 'hours_remaining', 'status', 'fc_name', 'name'
     sortAscending: true,
@@ -25,7 +24,6 @@ Module.register('MMM-Armada', {
     showBuild: false,
     showRoute: true,
     showLevel: true,
-    compactMode: false,
   },
 
   // Define required styles
@@ -78,28 +76,94 @@ Module.register('MMM-Armada', {
 
     var data = this.dashboardData
 
-    // Summary section
-    if (this.config.showSummary && data.summary) {
-      var summaryDiv = this.createSummarySection(data.summary)
+    if (this.config.displayMode === 'summary') {
+      var summaryDiv = this.createSummaryCards(data)
       wrapper.appendChild(summaryDiv)
-    }
+    } else {
+      // Detailed mode
+      if (data.summary) {
+        var summaryDiv = this.createDetailedSummary(data.summary)
+        wrapper.appendChild(summaryDiv)
+      }
 
-    // Supply forecast section
-    if (this.config.showSupplyForecast && data.supply_forecast) {
-      var supplyDiv = this.createSupplySection(data.supply_forecast)
-      wrapper.appendChild(supplyDiv)
-    }
+      if (data.supply_forecast) {
+        var supplyDiv = this.createSupplySection(data.supply_forecast)
+        wrapper.appendChild(supplyDiv)
+      }
 
-    // Submarines section
-    if (this.config.showSubmarines && data.submarines) {
-      var subsDiv = this.createSubmarinesSection(data.submarines)
-      wrapper.appendChild(subsDiv)
+      if (data.submarines) {
+        var subsDiv = this.createSubmarinesSection(data.submarines)
+        wrapper.appendChild(subsDiv)
+      }
     }
 
     return wrapper
   },
 
-  createSummarySection: function (summary) {
+  // Summary cards view (compact)
+  createSummaryCards: function (data) {
+    var div = document.createElement('div')
+    div.className = 'armada-cards'
+
+    // Count submarines by status
+    var readyCount = 0
+    var almostReadyCount = 0
+    var voyagingCount = 0
+
+    if (data.submarines) {
+      data.submarines.forEach(function (sub) {
+        if (sub.status === 'ready') readyCount++
+        else if (sub.status === 'returning_soon') almostReadyCount++
+        else if (sub.status === 'voyaging') voyagingCount++
+      })
+    }
+
+    // Days until restock
+    var daysUntilRestock = null
+    var restockClass = 'stat-ok'
+    if (data.supply_forecast && data.supply_forecast.days_until_restock !== null) {
+      daysUntilRestock = data.supply_forecast.days_until_restock
+      if (daysUntilRestock <= 3) {
+        restockClass = 'stat-critical'
+      } else if (daysUntilRestock <= 7) {
+        restockClass = 'stat-warning'
+      }
+    }
+
+    // Gil made last 30 days (estimate from daily rate)
+    var gilLast30Days = 0
+    if (data.summary && data.summary.total_gil_per_day) {
+      gilLast30Days = data.summary.total_gil_per_day * 30
+    }
+
+    div.innerHTML = `
+      <div class="stat-card ${restockClass}">
+        <div class="stat-value">${daysUntilRestock !== null ? daysUntilRestock.toFixed(0) : '—'}</div>
+        <div class="stat-label">Days to Restock</div>
+      </div>
+      <div class="stat-card stat-voyaging">
+        <div class="stat-value">${voyagingCount}</div>
+        <div class="stat-label">Voyaging</div>
+      </div>
+      <div class="stat-card stat-ready">
+        <div class="stat-value">${readyCount}</div>
+        <div class="stat-label">Ready</div>
+      </div>
+      <div class="stat-card stat-soon">
+        <div class="stat-value">${almostReadyCount}</div>
+        <div class="stat-label">Almost Ready</div>
+      </div>
+      <div class="stat-card stat-gil">
+        <div class="stat-value">${this.formatNumber(gilLast30Days)}</div>
+        <div class="stat-label">Gil (30 days)</div>
+      </div>
+    `
+
+    return div
+  },
+
+  // Detailed view - Summary section
+  createDetailedSummary: function (summary) {
     var div = document.createElement('div')
     div.className = 'armada-summary'
 
@@ -131,6 +195,7 @@ Module.register('MMM-Armada', {
     return div
   },
 
+  // Detailed view - Supply section
   createSupplySection: function (supply) {
     var div = document.createElement('div')
     div.className = 'armada-supply'
@@ -161,6 +226,7 @@ Module.register('MMM-Armada', {
     return div
   },
 
+  // Detailed view - Submarines table
   createSubmarinesSection: function (submarines) {
     var self = this
     var div = document.createElement('div')
@@ -246,19 +312,17 @@ Module.register('MMM-Armada', {
     tr.appendChild(nameTd)
 
     // Route/Build info
-    if (!this.config.compactMode) {
-      var infoTd = document.createElement('td')
-      infoTd.className = 'sub-info align-left dimmed'
-      var infoText = ''
-      if (this.config.showRoute && sub.route) {
-        infoText += sub.route
-      }
-      if (this.config.showBuild && sub.build) {
-        infoText += infoText ? ` (${sub.build})` : sub.build
-      }
-      infoTd.innerHTML = infoText
-      tr.appendChild(infoTd)
+    var infoTd = document.createElement('td')
+    infoTd.className = 'sub-info align-left dimmed'
+    var infoText = ''
+    if (this.config.showRoute && sub.route) {
+      infoText += sub.route
     }
+    if (this.config.showBuild && sub.build) {
+      infoText += infoText ? ` (${sub.build})` : sub.build
+    }
+    infoTd.innerHTML = infoText
+    tr.appendChild(infoTd)
 
     // Time remaining
     var timeTd = document.createElement('td')
