@@ -15,6 +15,7 @@ Module.register('MMM-Armada', {
     updateInterval: 60 * 1000,
     animationSpeed: 2 * 1000,
     initialLoadDelay: 0,
+    timezone: 'auto', // 'auto' to use browser timezone, or offset in minutes (e.g., -480 for PST)
     displayMode: 'summary', // 'summary' or 'detailed'
     // Summary mode options
     summarySize: 'normal', // 'compact', 'normal', or 'large'
@@ -372,10 +373,19 @@ Module.register('MMM-Armada', {
     var self = this
     this.debugmsg('MMM-Armada: getData')
 
+    // Get timezone offset: 'auto' uses browser's offset, or use configured value
+    var tzOffset = this.config.timezone
+    if (tzOffset === 'auto') {
+      // getTimezoneOffset returns minutes, positive for west of UTC
+      // API expects the same convention
+      tzOffset = new Date().getTimezoneOffset()
+    }
+
     this.sendSocketNotification('ARMADA_REQUEST', {
       apiUrl: this.config.apiUrl,
       apiKey: this.config.apiKey,
       displayMode: this.config.displayMode,
+      timezoneOffset: tzOffset,
       identifier: this.identifier,
     })
 

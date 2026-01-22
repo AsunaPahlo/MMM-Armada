@@ -17,7 +17,12 @@ module.exports = NodeHelper.create({
     try {
       // Use lightweight /status endpoint for summary mode, full /dashboard for detailed
       const endpoint = payload.displayMode === 'detailed' ? 'dashboard' : 'status'
-      const url = `${payload.apiUrl}/api/v1/${endpoint}`
+      let url = `${payload.apiUrl}/api/v1/${endpoint}`
+
+      // Add timezone offset for status endpoint (affects daily profit calculation)
+      if (endpoint === 'status' && payload.timezoneOffset !== undefined) {
+        url += `?tz=${payload.timezoneOffset}`
+      }
 
       // API key is required for v1 API
       if (!payload.apiKey) {

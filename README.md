@@ -43,6 +43,7 @@ Add the module to your `config/config.js` file:
 | `updateInterval` | How often to fetch data (in milliseconds) | `60000` (1 minute) |
 | `animationSpeed` | DOM update animation duration (in milliseconds) | `2000` |
 | `initialLoadDelay` | Delay before first data load (in milliseconds) | `0` |
+| `timezone` | Timezone for daily profit calculation: `auto` (browser default) or offset in minutes from UTC (e.g., `-480` for PST, `540` for JST) | `auto` |
 | `displayMode` | Display mode: `summary` or `detailed` | `summary` |
 | `summarySize` | Summary pill size: `compact`, `normal`, or `large` | `normal` |
 | `summaryLayout` | Summary layout: `vertical` or `horizontal` | `vertical` |
